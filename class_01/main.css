@@ -1,0 +1,45 @@
+body {
+	width: 100vw;
+	height: 100vw;
+}
+
+#container {
+	margin-left: 50px;
+	width: 40%;
+	height: 40%;
+	border: 2px solid black;
+	margin: 30%;
+	/*border: 200px solid black;
+	border-radius: 100%;*/
+}
+
+.one{
+	width: 30%;
+	height: 100%;
+	background-color: blue;
+	margin-left: 2.5%;
+	float: left;
+}
+
+#one,#two,#three {
+	width: 100%;
+	height: 30%;
+	margin-top: 2.5%;
+	/*border: 2px solid black;*/
+}
+
+/*#two {
+	/*
+	width: 0px;
+	height: 0px;
+
+	border: 100px solid transparent;
+	border-bottom-color: black;
+	border-right-color: black;
+
+	border-radius: 50%;
+
+
+	margin-left: 10%;
+	margin-right: 0px;
+}*/
