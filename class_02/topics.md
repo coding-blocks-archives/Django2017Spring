@@ -1,0 +1,14 @@
+Javascript:
+	- Introduction
+	- Variables and Data types
+		- Strings
+		- bool
+		- Number
+		- Array
+		- Object
+		- Array-like-objects
+	- Operators (=, ==, ===)
+	- console, alerts, prompts
+	- Scope resolution
+	- Onclick type functions
+	- functions

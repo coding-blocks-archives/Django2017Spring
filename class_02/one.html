@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title>One</title>
+	<style type="text/css">
+		body {
+			background: radial-gradient(circle, red, green, blue);
+		}
+	</style>
+</head>
+<body style="width: 100vw; height: 900px">
+	<button onclick="change()">Click Me!!</button>
+
+	<script type="text/javascript">
+		function change() {
+			//console.log(document.body.style);
+			document.body.style.background = 'radial-gradient(circle, ' + randomColor() + ', ' + randomColor() + ', ' + randomColor() + ')';
+		}
+
+		function randomColor() {
+			var l = '0123456789abcdef';
+			col = '#';
+
+			for (var i=0; i<6; i++) {
+				col += l[parseInt(Math.random() * l.length)];
+			}
+
+			return col;
+		}
+	</script>
+
+</body>
+</html>
