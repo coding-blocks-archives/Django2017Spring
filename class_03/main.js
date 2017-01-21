@@ -9,6 +9,8 @@ var scaleFactor = 2.0;
 var dx = 1;
 var dy = 1;
 
+var ROT = 0;
+
 function drawRect(x, y, w, h, color='#ff0000') {
 	ctx.beginPath();
 	ctx.rect(x, y, w, h);
@@ -35,23 +37,40 @@ function randomRange(low=0, high=1) {
 }
 
 function draw() {
-	ctx.clearRect(0, 0, canvas.width, canvas.height);
+	//ctx.clearRect(0, 0, canvas.width, canvas.height);
 	//drawCircle(x, y, 50, color='#0000ff', fill=false);
 
 	var dth = 0.001;
 	var dr = 0.01;
-	var ang = 0.0;
+	var ang = ROT;
 	var r = 1;
 
 	while (r < 200) {
 		ctx.beginPath();
-		ctx.arc(x, y, r, ang, ang+dth)
+		ctx.arc(x, y, r, ang, ang+dth);
 		ctx.strokeStyle = '#0000ff';
 		ctx.stroke();
 		ctx.closePath();
 		ang += dth;
 		r += dr;
 	}
+
+	var dth = 0.001;
+	var dr = 0.01;
+	var ang = ROT + Math.PI;
+	var r = 1;
+
+	while (r < 200) {
+		ctx.beginPath();
+		ctx.arc(x, y, r, ang, ang+dth);
+		ctx.strokeStyle = '#FF0000';
+		ctx.stroke();
+		ctx.closePath();
+		ang += dth;
+		r += dr;
+	}
+
+	ROT += Math.PI/27;
 
 	/*dx = randomRange(-2, 2);
 	dy = randomRange(-2, 2);
@@ -72,4 +91,4 @@ function startSimulation(frameInterval=10) {
 }
 
 //---------------- start -------------//
-startSimulation(10);
+startSimulation(1);
