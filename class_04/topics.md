@@ -1,0 +1,8 @@
+- variables, datatypes
+	- Int, str
+	- Lists, Dictionary, Tuples
+- operators
+- Conditionals
+- Loops
+- Functions
+- OOP
