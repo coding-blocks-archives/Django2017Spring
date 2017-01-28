@@ -18,4 +18,10 @@ python manage.py runserver
 python manage.py startapp myapp
 
 
-url: localhost:8000/data/
+url: localhost:8000/data/?name=abcd
+
+
+
+
+
+
