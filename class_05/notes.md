@@ -20,6 +20,8 @@ python manage.py startapp myapp
 
 url: localhost:8000/data/?name=abcd
 
+/data/add/
+
 
 
 
