@@ -1,0 +1,26 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title>My Main Page</title>
+</head>
+<body>
+
+{% if name %}
+<p align='center'>Welcome {{ name }}!</p>
+
+{% else %}
+<p align='center'>Welcome</p>
+
+{% endif %}
+
+<hr>
+Enter your Name here
+<br>
+<form action="/" method="GET">
+	Name: <input type="text" name="name">
+	<br>
+	<button type="submit">Submit</button>
+</form>
+
+</body>
+</html>

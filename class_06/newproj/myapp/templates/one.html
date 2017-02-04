@@ -1,0 +1,21 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title>Response Page</title>
+</head>
+<body>
+
+<p align="center">Welcome {{ name.str }}!</p>
+<hr>
+
+This is my page. Your ID is: {{ name.idx }} {{ abc }}
+<br>
+
+<ul>
+	{% for n in num %}
+	<li>{{ n }}</li>
+	{% endfor %}
+</ul>
+
+</body>
+</html>
