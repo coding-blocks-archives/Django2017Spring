@@ -1,14 +1,6 @@
-<!DOCTYPE html>
-<html>
-<head>
-	<title>Response Page</title>
-</head>
-<body>
 
-<p align="center">Welcome {{ name.str }}!</p>
-<hr>
-
-This is my page. Your ID is: {{ name.idx }} {{ abc }}
+{% block content %}
+This is my page. Your ID is: {{ name.idx }}
 <br>
 
 <ul>
@@ -16,6 +8,4 @@ This is my page. Your ID is: {{ name.idx }} {{ abc }}
 	<li>{{ n }}</li>
 	{% endfor %}
 </ul>
-
-</body>
-</html>
+{% endblock %}

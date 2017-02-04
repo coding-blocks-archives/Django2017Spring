@@ -1,26 +1,35 @@
-<!DOCTYPE html>
-<html>
-<head>
-	<title>My Main Page</title>
-</head>
-<body>
+{% extends "base.html" %}
 
-{% if name %}
-<p align='center'>Welcome {{ name }}!</p>
 
-{% else %}
-<p align='center'>Welcome</p>
-
-{% endif %}
-
-<hr>
-Enter your Name here
-<br>
+{% block content %}
 <form action="/" method="GET">
-	Name: <input type="text" name="name">
+	Name: <input type="text" name="name" value="NA"><br>
+	Organization: <input type="text" name="org" value="NA">
 	<br>
 	<button type="submit">Submit</button>
 </form>
+<br><hr>
+{% endblock %}
 
-</body>
-</html>
+{% block table %}
+	
+	{% if show_table %}
+		<table border="1">
+			<tr>
+				<th>ID</th>
+				<th>Name</th>
+				<th>Organization</th>
+				<th>Score</th>
+			</tr>
+			{% for dx in data %}
+			<tr>
+				<td>{{ dx.id }}</td>
+				<td>{{ dx.name }}</td>
+				<td>{{ dx.org }}</td>
+				<td>{{ dx.score }}</td>
+			</tr>
+			{% endfor %}
+		</table>
+	{% endif %}
+
+{% endblock %}
