@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title>Game page</title>
+</head>
+<body align='center'>
+Welcome {{ user }}!
+<hr>
+<br>
+<div id="score"></div>
+<p>
+Let's Play a game!
+Click on the button to generate a random score.
+</p>
+<button onclick=getScore() id="game">Click me</button>
+
+<script type="text/javascript">
+	function getScore() {
+		MAX_SCORE = 50.0;
+		score = parseInt(MAX_SCORE*Math.random());
+		console.log(score);
+		txt = "You scored: " + score + ". ";
+
+		if(score < MAX_SCORE/5) {
+			msg = "You should try again!"
+		} else {
+			msg = "";
+		}
+
+		sub_button = "<br><button onclick=sendScore(score)>Upload Score</button>"
+
+		document.getElementById('score').innerHTML = txt + msg + sub_button;
+	}
+
+	function sendScore(score) {
+		name = '{{ user }}';
+		game_id = generateGameId();
+
+		window.location = '/gamescore/?uname=' + name + '&score=' + score + '&gameid=' + game_id;
+	}
+
+	function generateGameId() {
+		chrs = 'abcdefghijklmnopqrstuvwxyz0123456789';
+		l = chrs.length
+		id = '';
+
+		for(var i=0; i < 7; i++) {
+			id += chrs[parseInt(Math.random()*l)]
+		}
+		return id
+	}
+</script>
+</body>
+</html>

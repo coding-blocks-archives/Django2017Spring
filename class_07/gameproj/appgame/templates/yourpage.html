@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title>{{ user }}'s Page</title>
+</head>
+<body align='center'>
+
+Welcome {{ user }}
+<hr>
+
+{% if data %}
+
+	{% if data.table %}
+	<h2> Your gaming history:</h2>
+	<table border='1'>
+		<tr>
+			<th>ID</th>
+			<th>Game ID</th>
+			<th>Score</th>
+		</tr>
+		{% for tx in data.table %}
+		<tr>
+			<td>{{ tx.id }}</td>
+			<td>{{ tx.game_id }}</td>
+			<td>{{ tx.score }}</td>
+		</tr>
+		{% endfor %}
+	</table>
+
+	{% else %}
+	<h3> You haven't played any games yet!</h3>
+	<br>
+	Go on and have some fun!
+	{% endif %}
+
+{% else %}
+<h2>Welcome to Gaming Blocks!</h2>
+<br>
+We hope you have a good time!
+{% endif %}
+<br>
+<hr>
+<button onclick=startGame("{{ user }}")>Play a Game!</button>
+
+<script type="text/javascript">
+	function startGame(name) {
+		window.location = '/game/?uname=' + name;
+	}
+</script>
+</body>
+</html>

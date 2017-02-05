@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title>Welcome To Gaming Blocks</title>
+</head>
+<body align='center'>
+
+<p align="center">Welcome</p>
+
+{% if msg %}
+	<h3>{{ msg }}</h3>
+{% endif %}
+
+<hr>
+<p align="center">
+Are you a New user? Join in!
+<br>
+<form action="/mypage/" method="GET">
+Name: <input type="text" name="uname">
+Key: <input type="password" name="key">
+<input type="text" name="usertype" value="new" style="visibility: hidden;">
+<button type="submit">Start!</button>
+</form>
+</p>
+<br>
+<p align="center">
+Returning User? Improve your score!
+<br>
+<form action="/mypage/" method="GET">
+Name: <input type="text" name="uname">
+Key: <input type="password" name="key">
+<input type="text" name="usertype" value="old" style="visibility: hidden;">
+<button type="submit">Start!</button>
+</form>
+</p>
+
+</body>
+</html>
