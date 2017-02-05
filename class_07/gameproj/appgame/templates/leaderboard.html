@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title>Leaderboard</title>
+</head>
+<body align='center'>
+
+Welcome {{ user }}<br>
+This is the <b>Leaderboard</b>
+<hr>
+
+<table border="1" padding='5'>
+	<tr>
+		<th>Rank</th>
+		<th>Username</th>
+		<th>Best Game</th>
+		<th>Score</th>
+	</tr>
+	{% for lx in leaders %}
+	<tr>
+		<td>{{ lx.rank }}</td>
+		<td>{{ lx.username }}</td>
+		<td>{{ lx.game_id }}</td>
+		<td>{{ lx.score }}</td>
+	</tr>
+	{% endfor %}
+</table>
+<br><hr>
+
+
+</body>
+</html>

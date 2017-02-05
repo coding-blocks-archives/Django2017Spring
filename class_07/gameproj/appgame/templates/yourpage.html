@@ -41,10 +41,15 @@ We hope you have a good time!
 <br>
 <hr>
 <button onclick=startGame("{{ user }}")>Play a Game!</button>
+<button onclick=leaderBoard("{{ user }}")>Check Leaderboard</button>
 
 <script type="text/javascript">
 	function startGame(name) {
 		window.location = '/game/?uname=' + name;
+	}
+
+	function leaderBoard(name) {
+		window.location = '/leaderboard/?uname=' + name;
 	}
 </script>
 </body>

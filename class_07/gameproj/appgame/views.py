@@ -43,7 +43,31 @@ def gameScore(request):
 
 
 def leaderBoard(request):
-	return HttpResponse("Working...")
+
+	uname = request.GET.get('uname')
+
+	board_data = []
+
+	for user in UserData.objects.all():
+		games = GameData.objects.filter(user=user)
+		best_game = sorted(games, key=lambda x: x.game_score, reverse=True)[0]
+		new_score_data = {
+			'username': user.username,
+			'game_id': best_game.game_id,
+			'score': best_game.game_score,
+			'rank': 0,
+		}
+		board_data.append(new_score_data)
+	board_data = sorted(board_data, key=lambda x: x['score'], reverse=True)
+	for ix in range(len(board_data)):
+		board_data[ix]['rank'] = ix+1
+
+	ctx = {
+		'user': uname,
+		'leaders': board_data,
+	}
+
+	return render(request, 'leaderboard.html', ctx)
 
 
 def myPage(request):
