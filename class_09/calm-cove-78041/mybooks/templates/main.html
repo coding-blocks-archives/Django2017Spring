@@ -1,0 +1,18 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title>My Main Page</title>
+</head>
+<body align='center'>
+
+<p>Welcome to POST request form</p>
+<hr>
+
+<form action="/submitform/" method="POST">
+{% csrf_token %}
+Name: <input type="text" name="name">
+<button type="submit">Submit</button>
+</form>
+
+</body>
+</html>

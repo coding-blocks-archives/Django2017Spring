@@ -1,0 +1,22 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title>My Main Page</title>
+</head>
+<body align='center'>
+
+<p>Welcome</p>
+<hr>
+
+{% if data %}
+	<b>{{ data }}</b>
+{% endif %}
+<br>
+
+<form action="/submitform/" method="GET">
+Name: <input type="text" name="name">
+<button type="submit">Submit</button>
+</form>
+
+</body>
+</html>

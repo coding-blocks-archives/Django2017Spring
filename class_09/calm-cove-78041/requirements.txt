@@ -1,0 +1,6 @@
+bs4
+dj-database-url
+Django==1.10.4
+gunicorn
+requests
+whitenoise

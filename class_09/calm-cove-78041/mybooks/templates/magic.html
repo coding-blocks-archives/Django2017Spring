@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title>Magic</title>
+</head>
+<body align='center'>
+
+This is a magic page!
+<hr>
+
+<button onclick="startmagic()">Start</button>
+<br>
+<div id='magic'></div>
+<script type="text/javascript">
+	function startmagic() {
+		num = parseInt(Math.random()*5000);
+		alphas = 'ab c defg hijk lm nopq rs tu vwxyz '
+		s = ''
+
+		for(var ix=0; ix < num; ix++) {
+			s += alphas[parseInt(Math.random() * alphas.length)];
+		}
+
+		document.getElementById('magic').innerHTML = s;
+
+	}
+</script>
+</body>
+</html>
