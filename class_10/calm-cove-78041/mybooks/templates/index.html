@@ -1,0 +1,27 @@
+
+<!DOCTYPE html>
+<html>
+<head>
+	<title>My Main Page</title>
+</head>
+<body align='center'>
+
+<p>Welcome</p>
+<hr>
+
+{% if data %}
+	<b>{{ data }}</b>
+{% endif %}
+<br>
+
+<form action="/submitform/" method="GET">
+Name: <input type="text" name="name">
+<button type="submit">Submit</button>
+</form>
+<hr>
+<a href="{% url 'home' %}">Home</a>
+<a href="{% url 'main' %}">Main</a>
+<a href="{% url 'shownews' %}">Show News</a>
+
+</body>
+</html>

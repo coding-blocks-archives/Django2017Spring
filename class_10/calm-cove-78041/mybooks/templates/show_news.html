@@ -1,0 +1,35 @@
+{% load static %}
+<!DOCTYPE html>
+<html>
+<head>
+	<title>My News</title>
+	<link rel="stylesheet" type="text/css" href='{% static "css/main.css" %}'/>
+</head>
+<body align='center'>
+
+<p>Welcome</p>
+<hr>
+
+<img src='{% static "img/main.jpg" %}' onclick="myFunc()">
+
+<hr>
+
+<form action="{% url 'shownews' %}" method="post">
+{% csrf_token %}
+{{ form }}
+<button type="submit">Submit</button>
+</form>
+<hr>
+<ol>
+	{% for nx in data %}
+	<li onclick=''>{{ nx.headline }}</li>
+	{% endfor %}
+</ol>
+<hr>
+<hr>
+<br>
+<br>
+
+<script type="text/javascript" src='{% static "js/one.js" %}'></script>
+</body>
+</html>

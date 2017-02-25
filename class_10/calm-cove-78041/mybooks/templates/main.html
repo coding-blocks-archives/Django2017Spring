@@ -1,0 +1,23 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title>My Main Page</title>
+</head>
+<body align='center'>
+
+<p>Welcome to POST request form</p>
+<hr>
+
+<form action="/submitform/" method="POST">
+{% csrf_token %}
+Name: <input type="text" name="name">
+<button type="submit">Submit</button>
+</form>
+<hr>
+<a href="{% url 'home' %}">Home</a>
+<a href="{% url 'main' %}">Main</a>
+<a href="{% url 'shownews' %}">Show News</a>
+
+
+</body>
+</html>
