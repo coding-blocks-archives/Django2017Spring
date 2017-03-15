@@ -49,13 +49,16 @@ def user_login(request):
 				# ctx = {'user': u}
 				resp['status'] = 'success';
 				return HttpResponse(json.dumps({'data': resp}))
-				return render(request, 'logged_in.html')#, ctx)
+				# return render(request, 'logged_in.html')#, ctx)
 			else:
-				return HttpResponse("User account deactivated")
+				resp['status'] = 'Deactivcated account';
+				return HttpResponse(json.dumps({'data': resp}))
 		else:
-			return HttpResponse("Invalid User!")
+			resp['status'] = 'Invalid User!';
+			return HttpResponse(json.dumps({'data': resp}))
 	
-	return redirect('/login')
+	resp['status'] = 'Invalid Form Data!!';
+	return HttpResponse(json.dumps({'data': resp}))
 
 @login_required
 def user_logout(request):

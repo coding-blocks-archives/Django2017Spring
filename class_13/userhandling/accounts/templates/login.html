@@ -3,18 +3,29 @@
 <head>
 	<title>Welcome</title>
 	<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.1.1/jquery.min.js"></script>
+
+	<style type="text/css">
+		
+	#msg {
+		width: 90vw;
+		height: 5vw;
+		border: 1px solid black;
+	}
+
+	</style>
 </head>
 <body align='center'>
 
 <h1>Welcome!</h1>
-Login from here!
+
+<div id="msg">Login from here!</div>
 
 <hr>
 
-<form action="{% url 'login' %}" method="POST">
-	<!--{% csrf_token %}-->
-	{{ form.as_p }}
-</form>
+<!--form action="{% url 'login' %}" method="POST">
+	<{% csrf_token %}-->
+{{ form.as_p }}
+<!--/form-->
 <button id="submit">Submit</button>
 
 
@@ -26,9 +37,20 @@ Login from here!
 			'password': $('#id_password').val()
 		}
 
-		$.get('/userlogin', function (data, status) {
-			console.log(data);
-		})
+		$.post('/userlogin/', form_data, function (data, status) {
+			//console.log(data)
+			var dt = JSON.parse(data);
+			var login_status = dt.data.status;
+
+			if (login_status == 'success') {
+				alert("Logged In. Click Ok to go to Home");
+				window.location = '/';
+			}
+			else {
+				//console.log(login_status);
+				$('#msg').html(login_status + '\n Login Again!!');
+			}
+		});
 	});
 </script>
 
