@@ -1,0 +1,20 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title>Welcome</title>
+</head>
+<body align='center'>
+
+<h1>Welcome!</h1>
+Register from here!
+
+<hr>
+
+<form action="{% url 'register_data' %}" method="POST">
+	{% csrf_token %}
+	{{ form }}
+	<button type="submit">Submit</button>
+</form>
+
+</body>
+</html>

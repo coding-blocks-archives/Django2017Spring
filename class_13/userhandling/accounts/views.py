@@ -3,12 +3,18 @@ from django.http import HttpResponse
 from models import User, MyUser, LoginForm, RegisterForm
 from django.contrib.auth import authenticate, login, logout
 from django.contrib.auth.decorators import login_required
-
+import json
 
 # Create your views here.
 def hello(request):
 	return render(request, 'index.html')
 
+def apicall(request):
+	data = {
+		'status': 'success',
+		'name': 'New Button',
+	}
+	return HttpResponse(json.dumps({'data': data}))
 
 def login_page(request):
 	frm = LoginForm()

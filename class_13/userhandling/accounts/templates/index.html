@@ -1,0 +1,75 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title>Welcome</title>
+	<style type="text/css">
+		#one {
+			width: 70vw;
+			height: 30vw;
+			border: 2px solid black;
+			background-color: #29e3f0;
+			margin-left: 15vw;
+		}
+
+		.one {
+			width: 80%;
+			height: 30%;
+			background-color: green;
+			margin-top: 5%;
+			margin-left: 10%;
+			margin-right: 0px;
+			border: 1px solid black;
+		}
+
+		#one_one {
+			background-color: gray;
+		}
+
+	</style>
+</head>
+<body align='center'>
+
+<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
+
+<!-- jQuery library -->
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.1.1/jquery.min.js"></script>
+
+<!-- Latest compiled JavaScript -->
+<script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
+
+{% if user.is_authenticated %}
+Welcome to my page! AAA
+{% else %}
+Welcome!!
+{% endif %}
+
+<hr>
+<br>
+<div id="one">
+	<div id="one_one" class="one"></div>
+	<div id="one_two" class="one"></div>
+</div>
+
+<br>
+<button id="nb">AAAAA</button>
+
+<script type="text/javascript">
+	$('#nb').click(function () {
+		//alert('Don\'t press the button!!');
+		var url = '/api/';
+		$.get(url, function (data, status) {
+			//console.log(data);
+			//alert(status);
+			var dt = JSON.parse(data);
+			$('#nb')[0].innerHTML = dt.data.name;
+			//console.log(dt.data.name);
+		});
+	});
+
+	//$.get(url, callback)
+	//$.post(url, data, callback)
+
+</script>
+
+</body>
+</html>
