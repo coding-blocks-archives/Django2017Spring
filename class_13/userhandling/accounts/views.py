@@ -4,6 +4,7 @@ from models import User, MyUser, LoginForm, RegisterForm
 from django.contrib.auth import authenticate, login, logout
 from django.contrib.auth.decorators import login_required
 import json
+from django.views.decorators.csrf import csrf_exempt
 
 # Create your views here.
 def hello(request):
@@ -21,10 +22,16 @@ def login_page(request):
 	ctx = {'form': frm}
 	return render(request, 'login.html', ctx)
 
+@csrf_exempt
 def user_login(request):
 	
+	resp = {
+		'status': ''
+	}
+
 	if not request.method == 'POST':
-		return redirect('/login')
+		resp['status'] = 'Y U NO POST REQUEST?'
+		return HttpResponse(json.dumps({'data': resp}))
 
 	frm = LoginForm(request.POST)
 
@@ -40,6 +47,8 @@ def user_login(request):
 			if u.is_active:
 				login(request, u)
 				# ctx = {'user': u}
+				resp['status'] = 'success';
+				return HttpResponse(json.dumps({'data': resp}))
 				return render(request, 'logged_in.html')#, ctx)
 			else:
 				return HttpResponse("User account deactivated")
@@ -73,7 +82,9 @@ def register_data(request):
 
 			try:
 				print uname, passwd
-				usr = User(username=uname, password=passwd)
+				# usr = User(username=uname, password=passwd)
+				usr = User(username=uname)
+				usr.set_password(passwd)
 				usr.save()
 			except:
 				return HttpResponse("User already exists!")

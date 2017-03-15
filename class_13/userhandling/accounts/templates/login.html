@@ -2,6 +2,7 @@
 <html>
 <head>
 	<title>Welcome</title>
+	<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.1.1/jquery.min.js"></script>
 </head>
 <body align='center'>
 
@@ -11,10 +12,25 @@ Login from here!
 <hr>
 
 <form action="{% url 'login' %}" method="POST">
-	{% csrf_token %}
-	{{ form }}
-	<button type="submit">Submit</button>
+	<!--{% csrf_token %}-->
+	{{ form.as_p }}
 </form>
+<button id="submit">Submit</button>
+
+
+<script type="text/javascript">
+	$('#submit').click(function () {
+
+		var form_data = {
+			'username': $('#id_username').val(),
+			'password': $('#id_password').val()
+		}
+
+		$.get('/userlogin', function (data, status) {
+			console.log(data);
+		})
+	});
+</script>
 
 </body>
 </html>
