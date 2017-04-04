@@ -53,7 +53,7 @@ def sendMessage(chat_id, text=''):
 
 
 def init_bot():
-	addr = 'https://80e57d9b.ngrok.io/353249793:AAHvZltlXyWwvFj5vRDGGPLq4518npidt7s/'
+	addr = 'https://80e57d9b.ngrok.io/' + API_KEY + '/'
 	url = URL + API_KEY + '/setWebhook?url=' + addr
 	r = requests.get(url)
 	print r
