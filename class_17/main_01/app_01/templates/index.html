@@ -1,0 +1,13 @@
+{% extends "base.html" %}
+
+{% block title %} Welcome! {% endblock %}
+
+{% block jumbo %}
+<div class="jumbotron">
+  <div class="container">
+    <h1>Hello!</h1>
+    <p>Welcome to CB Quiz! We hope you have fun on our website!</p>
+    <p><a class="btn btn-primary btn-lg" href="{% url 'about' %}" role="button">Learn more</a></p>
+  </div>
+</div>
+{% endblock %}
