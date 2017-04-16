@@ -7,12 +7,20 @@ import random
 
 def main(request):
 	# print a()*500
+	request.session.set_test_cookie()
 	return render(request, 'index.html')
 
 
 def about(request):
-	return render(request, 'index.html')
+	if request.session.test_cookie_worked():
+		print '>'*100
+		request.session.delete_test_cookie()
 
+	vis = int(request.COOKIES.get('visit', '0'))
+	# print "Number of page visits from you:", vis
+	resp = render(request, 'index.html', {'visits': vis+1})
+	resp.set_cookie('visit', vis+1)
+	return resp
 
 def play_quiz(request):
 	# user = request.user
